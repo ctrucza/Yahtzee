@@ -12,17 +12,11 @@ namespace YahtzeeApp
         static void Main(string[] args)
         {
             Game game = new Game();
+            game.Delegate = new CliDelegate();
             game.Add(new Player("Joe"));
             game.Add(new Player("Jane"));
 
             game.Start();
-
-            while (!game.IsOver())
-            {
-                game.Turn();
-            }
-
-            game.ShowResults();
         }
     }
 }
