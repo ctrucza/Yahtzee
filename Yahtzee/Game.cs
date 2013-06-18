@@ -8,7 +8,7 @@ namespace Yahtzee
     {
         public GameDelegate Delegate;
         private Player currentPlayer;
-        private List<Player> players = new List<Player>();
+        private readonly List<Player> players = new List<Player>();
 
         public void Add(Player player)
         {
