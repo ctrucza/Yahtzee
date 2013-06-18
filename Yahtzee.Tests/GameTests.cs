@@ -3,17 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Yahtzee;
+using NUnit.Framework;
 
-namespace YahtzeeApp
+namespace Yahtzee.Tests
 {
-    class Program
+    [TestFixture]
+    public class GameTests
     {
-        static void Main(string[] args)
+        [Test]
+        public void Test_usage()
         {
             Game game = new Game();
+            // WHat do we test here?
+            // What is the observable behaviour?
+
             game.Add(new Player("Joe"));
-            game.Add(new Player("Jane"));
+            // what would we test here?
 
             game.Start();
 
