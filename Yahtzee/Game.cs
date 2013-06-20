@@ -6,26 +6,31 @@ namespace Yahtzee
 {
     public class Game
     {
-        public GameDelegate Delegate;
+        private readonly GameDelegate gameDelegate;
         private Player currentPlayer;
         private readonly List<Player> players = new List<Player>();
+
+        public Game(GameDelegate gameDelegate)
+        {
+            this.gameDelegate = gameDelegate;
+        }
 
         public void Add(Player player)
         {
             players.Add(player);
-            Delegate.PlayerAdded(this, player);
+            gameDelegate.PlayerAdded(this, player);
         }
 
         public void Start()
         {
-            Delegate.GameStarted(this);
+            gameDelegate.GameStarted(this);
 
             while (!IsOver())
             {
                 Turn();
             }
 
-            Delegate.GameOver(this);
+            gameDelegate.GameOver(this);
         }
 
         private bool IsOver()
@@ -48,7 +53,7 @@ namespace Yahtzee
         private void SetCurrentPlayer(Player player)
         {
             currentPlayer = player;
-            Delegate.CurrentPlayerChanged(this, currentPlayer);
+            gameDelegate.CurrentPlayerChanged(this, currentPlayer);
         }
 
         private Player GetNextPlayer()

@@ -11,8 +11,7 @@ namespace YahtzeeApp
     {
         static void Main(string[] args)
         {
-            Game game = new Game();
-            game.Delegate = new CliDelegate();
+            Game game = new Game(new CliDelegate());
             game.Add(new Player("Joe"));
             game.Add(new Player("Jane"));
 
