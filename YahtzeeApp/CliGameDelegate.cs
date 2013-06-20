@@ -3,7 +3,7 @@ using Yahtzee;
 
 namespace YahtzeeApp
 {
-    internal class CliDelegate : GameDelegate
+    internal class CliGameDelegate : GameDelegate
     {
         public void PlayerAdded(Game game, Player player)
         {
