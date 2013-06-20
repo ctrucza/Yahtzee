@@ -6,7 +6,7 @@ The Yahtzee kata done with an delegate-based approach borrowed from iOS.
 Delegates
 ---------
 
-Delegates appear proeminently in iOS programming: they are used to communicate between the model and UI classes. 
+Delegates appear proeminently in iOS programming: they are used to communicate between the model and UI classes. The delegates resemble the Strategy pattern somehow.
 
 Consider the following class Game:
 
