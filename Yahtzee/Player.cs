@@ -11,9 +11,17 @@
 
         public void Move()
         {
-            Dice dice = Delegate.Throw();
+            Dice dice = Delegate.Throw(this);
+            Selection selection = Delegate.Select(this);
+
+            Score(dice, selection);
+
             Delegate.Moved(this);
             IsDone = true;
+        }
+
+        private void Score(Dice dice, Selection selection)
+        {
         }
 
         public bool IsDone { get; private set; }
@@ -24,5 +32,9 @@
         {
             return name;
         }
+    }
+
+    public class Selection 
+    {
     }
 }

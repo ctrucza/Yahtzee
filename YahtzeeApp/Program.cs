@@ -33,8 +33,10 @@ namespace YahtzeeApp
             Console.WriteLine("{0} moved", player);
         }
 
-        public Dice Throw()
+        public Dice Throw(Player player)
         {
+            Console.WriteLine("{0} threw dice", player);
+            return new Dice();
             throw new NotImplementedException();
         }
     }

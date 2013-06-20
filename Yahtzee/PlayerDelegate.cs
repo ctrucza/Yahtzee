@@ -3,6 +3,7 @@
     public interface PlayerDelegate
     {
         void Moved(Player player);
-        Dice Throw();
+        Dice Throw(Player player);
+        Selection Select(Player player);
     }
 }

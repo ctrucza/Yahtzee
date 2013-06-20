@@ -11,9 +11,14 @@ namespace Yahtzee.Tests
             HasMoved = true;
         }
 
-        public Dice Throw()
+        public Dice Throw(Player player)
         {
             return new Dice();
+        }
+
+        public Selection Select(Player player)
+        {
+            return new Selection();
         }
     }
 }
