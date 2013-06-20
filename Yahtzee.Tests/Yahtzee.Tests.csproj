@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="GameTests.cs" />
     <Compile Include="MockGameDelegate.cs" />
+    <Compile Include="MockPlayerDelegate.cs" />
     <Compile Include="PlayerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
