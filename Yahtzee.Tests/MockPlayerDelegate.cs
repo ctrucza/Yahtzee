@@ -4,11 +4,16 @@ namespace Yahtzee.Tests
 {
     public class MockPlayerDelegate : PlayerDelegate
     {
+        public bool HasMoved { get; private set; }
+
         public void Moved(Player player)
         {
             HasMoved = true;
         }
 
-        public bool HasMoved { get; private set; }
+        public Dice Throw()
+        {
+            return new Dice();
+        }
     }
 }

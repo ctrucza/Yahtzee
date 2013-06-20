@@ -24,5 +24,10 @@ namespace YahtzeeApp
         {
             Console.WriteLine("Game ended");
         }
+
+        public PlayerDelegate GetPlayerDelegate()
+        {
+            return new CliPlayerDelegate();
+        }
     }
 }

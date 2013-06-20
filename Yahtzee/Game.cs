@@ -18,6 +18,7 @@ namespace Yahtzee
         public void Add(Player player)
         {
             players.Add(player);
+            player.Delegate = gameDelegate.GetPlayerDelegate();
             gameDelegate.PlayerAdded(this, player);
         }
 

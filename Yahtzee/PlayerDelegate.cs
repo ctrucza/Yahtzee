@@ -3,5 +3,6 @@
     public interface PlayerDelegate
     {
         void Moved(Player player);
+        Dice Throw();
     }
 }

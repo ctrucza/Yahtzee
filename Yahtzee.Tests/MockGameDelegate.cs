@@ -30,6 +30,11 @@ namespace Yahtzee.Tests
             GameHasEnded = true;
         }
 
+        public PlayerDelegate GetPlayerDelegate()
+        {
+            return new MockPlayerDelegate();
+        }
+
         public bool PlayerHadTurns(Player player)
         {
             return playersWhoTookTurns.Contains(player);
