@@ -33,7 +33,7 @@ namespace Yahtzee
             return players.All(player => player.IsDone);
         }
 
-        public void Turn()
+        private void Turn()
         {
             MoveToNextPlayer();
             currentPlayer.Move();
