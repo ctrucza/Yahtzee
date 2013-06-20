@@ -1,24 +1,26 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using Yahtzee;
 
-namespace Yahtzee.Tests
+namespace YahtzeeApp
 {
-    public class MockPlayerDelegate : PlayerDelegate
+    internal class CliPlayerDelegate : PlayerDelegate
     {
-        public bool HasMoved { get; private set; }
-
         public void Moved(Player player)
         {
-            HasMoved = true;
+            Console.WriteLine("{0} moved", player);
         }
 
         public Dice Throw(Player player)
         {
+            Console.WriteLine("{0} threw dice", player);
             return new Dice();
         }
 
         public Line SelectLine(Player player, IEnumerable<Line> availableSelections)
         {
+            Console.WriteLine("{0} selected a line to put his dice on", player);
             return availableSelections.First();
         }
 
@@ -26,6 +28,7 @@ namespace Yahtzee.Tests
         {
             return new List<Line>
                 {
+                    new Line(),
                     new Line()
                 };
         }

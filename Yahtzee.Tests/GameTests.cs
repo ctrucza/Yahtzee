@@ -7,26 +7,29 @@ namespace Yahtzee.Tests
     {
         private Game game;
         private MockGameDelegate gameDelegate;
+        private Player joe;
 
         [SetUp]
         public void SetUp()
         {
             gameDelegate = new MockGameDelegate();
             game = new Game(gameDelegate);
+
+            joe = new Player("Joe", gameDelegate.GetPlayerDelegate());
         }
 
         [Test]
         public void Test_player_added()
         {
-            game.Add(new Player("Joe"));
+            game.Add(joe);
             Assert.AreEqual(gameDelegate.PlayerCount, 1);
         }
 
         [Test]
         public void Test_players_are_added()
         {
-            Player joe = new Player("Joe");
-            Player jane = new Player("Jane");
+            Player joe = this.joe;
+            Player jane = new Player("Jane", gameDelegate.GetPlayerDelegate());
 
             game.Add(joe);
             game.Add(jane);
@@ -38,7 +41,7 @@ namespace Yahtzee.Tests
         [Test]
         public void Test_game_starts()
         {
-            game.Add(new Player("Joe"));
+            game.Add(joe);
             game.Start();
 
             Assert.IsTrue(gameDelegate.GameWasStarted);
@@ -47,7 +50,7 @@ namespace Yahtzee.Tests
         [Test]
         public void Test_game_ends()
         {
-            game.Add(new Player("Joe"));
+            game.Add(joe);
             game.Start();
 
             Assert.IsTrue(gameDelegate.GameHasEnded);
@@ -56,7 +59,7 @@ namespace Yahtzee.Tests
         [Test]
         public void Test_players_take_turns()
         {
-            Player joe = new Player("Joe");
+            Player joe = this.joe;
             game.Add(joe);
             game.Start();
 

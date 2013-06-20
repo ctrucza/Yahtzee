@@ -18,7 +18,6 @@ namespace Yahtzee
         public void Add(Player player)
         {
             players.Add(player);
-            player.Delegate = gameDelegate.GetPlayerDelegate();
             gameDelegate.PlayerAdded(this, player);
         }
 
@@ -60,7 +59,7 @@ namespace Yahtzee
         private Player GetNextPlayer()
         {
             int index = players.IndexOf(currentPlayer);
-            if (index == players.Count)
+            if (index == players.Count-1)
                 index = 0;
             else
                 index++;

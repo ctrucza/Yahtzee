@@ -1,40 +1,37 @@
-﻿namespace Yahtzee
+﻿using System.Collections.Generic;
+using System.Linq;
+
+namespace Yahtzee
 {
     public class Player
     {
         private readonly string name;
+        private readonly PlayerDelegate playerDelegate;
+        private readonly List<Line> lines;
 
-        public Player(string name)
+        public Player(string name, PlayerDelegate playerDelegate)
         {
             this.name = name;
+            this.playerDelegate = playerDelegate;
+            lines = this.playerDelegate.GetLines();
         }
 
         public void Move()
         {
-            Dice dice = Delegate.Throw(this);
-            Selection selection = Delegate.Select(this);
+            Dice dice = playerDelegate.Throw(this);
+            Line line = playerDelegate.SelectLine(this, lines.Where(s=>!s.Scored));
+            line.Score(dice);
 
-            Score(dice, selection);
+            playerDelegate.Moved(this);
 
-            Delegate.Moved(this);
-            IsDone = true;
-        }
-
-        private void Score(Dice dice, Selection selection)
-        {
+            IsDone = lines.All(s=>s.Scored);
         }
 
         public bool IsDone { get; private set; }
-
-        public PlayerDelegate Delegate { get; set; }
 
         public override string ToString()
         {
             return name;
         }
-    }
-
-    public class Selection 
-    {
     }
 }

@@ -1,8 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 
 namespace Yahtzee.Tests
 {
@@ -15,11 +11,10 @@ namespace Yahtzee.Tests
         [SetUp]
         public void SetUp()
         {
-            player = new Player("Joe");
             playerDelegate = new MockPlayerDelegate();
-            player.Delegate = playerDelegate;
-            
+            player = new Player("Joe", playerDelegate);
         }
+
         [Test]
         public void Player_is_done_after_movement()
         {
