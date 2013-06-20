@@ -12,10 +12,25 @@ namespace YahtzeeApp
         static void Main(string[] args)
         {
             Game game = new Game(new CliDelegate());
-            game.Add(new Player("Joe"));
-            game.Add(new Player("Jane"));
+            CliPlayerDelegate cliPlayerDelegate = new CliPlayerDelegate();
+
+            Player joe = new Player("Joe");
+            joe.Delegate = cliPlayerDelegate;
+            game.Add(joe);
+            
+            Player jane = new Player("Jane");
+            jane.Delegate = cliPlayerDelegate;
+            game.Add(jane);
 
             game.Start();
+        }
+    }
+
+    internal class CliPlayerDelegate : PlayerDelegate
+    {
+        public void Moved(Player player)
+        {
+            Console.WriteLine("{0} moved", player);
         }
     }
 }
