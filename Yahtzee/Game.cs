@@ -35,7 +35,7 @@ namespace Yahtzee
 
         private bool IsOver()
         {
-            return players.All(player => player.IsDone);
+            return players.All(player => player.IsDone());
         }
 
         private void Turn()

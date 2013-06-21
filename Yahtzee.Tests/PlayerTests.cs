@@ -18,9 +18,9 @@ namespace Yahtzee.Tests
         [Test]
         public void Player_is_done_after_movement()
         {
-            Assert.IsFalse(player.IsDone);
+            Assert.IsFalse(player.IsDone());
             player.Move();
-            Assert.IsTrue(player.IsDone);
+            Assert.IsTrue(player.IsDone());
         }
 
         [Test]

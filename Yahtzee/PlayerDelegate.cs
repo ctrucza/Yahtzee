@@ -4,9 +4,13 @@ namespace Yahtzee
 {
     public interface PlayerDelegate
     {
-        void Moved(Player player);
+        List<Line> GetLines();
+
+        // operations
         Dice Throw(Player player);
         Line SelectLine(Player player, IEnumerable<Line> unknown);
-        List<Line> GetLines();
+
+        // event callbacks
+        void Moved(Player player);
     }
 }

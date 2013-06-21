@@ -24,10 +24,12 @@ namespace Yahtzee
 
             playerDelegate.Moved(this);
 
-            IsDone = lines.All(s=>s.Scored);
         }
 
-        public bool IsDone { get; private set; }
+        public bool IsDone()
+        {
+            return lines.All(s => s.Scored);
+        }
 
         public override string ToString()
         {
