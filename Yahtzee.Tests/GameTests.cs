@@ -42,7 +42,7 @@ namespace Yahtzee.Tests
         public void Test_game_starts()
         {
             game.Add(joe);
-            game.Start();
+            game.Run();
 
             Assert.IsTrue(gameDelegate.GameWasStarted);
         }
@@ -51,7 +51,7 @@ namespace Yahtzee.Tests
         public void Test_game_ends()
         {
             game.Add(joe);
-            game.Start();
+            game.Run();
 
             Assert.IsTrue(gameDelegate.GameHasEnded);
         }
@@ -61,7 +61,7 @@ namespace Yahtzee.Tests
         {
             Player joe = this.joe;
             game.Add(joe);
-            game.Start();
+            game.Run();
 
             Assert.IsTrue(gameDelegate.PlayerHadTurns(joe));
         }

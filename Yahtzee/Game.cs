@@ -21,7 +21,7 @@ namespace Yahtzee
             gameDelegate.PlayerAdded(this, player);
         }
 
-        public void Start()
+        public void Run()
         {
             gameDelegate.GameStarted(this);
 

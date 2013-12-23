@@ -17,7 +17,7 @@ namespace YahtzeeApp
             Player jane = new Player("Jane", cliPlayerDelegate);
             game.Add(jane);
 
-            game.Start();
+            game.Run();
         }
     }
 }
